@@ -60,6 +60,11 @@ public class SnowFlakeUtil {
         return System.currentTimeMillis();
     }
 
+    public long getId(){
+        SnowFlakeUtil snowFlakeUtil = SnowFlakeUtil.getFlowIdInstance();
+        return snowFlakeUtil.nextId();
+
+    }
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             SnowFlakeUtil snowFlakeUtil = SnowFlakeUtil.getFlowIdInstance();
