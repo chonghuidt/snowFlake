@@ -5,13 +5,16 @@ package com.lp.test;
  * @Date: 2020/8/19 16:51
  */
 public class SnowFlakeUtil {
+
     private static SnowFlakeUtil flowIdWorker = new SnowFlakeUtil(1);
     private final long id;
     /**
      * 时间起始标记点，作为基准，一般取系统的最近时间
      */
-    private final long epoch = 1524291141010L;
+//    private final long epoch = 1524291141010L;
+    private final long epoch =  System.currentTimeMillis();
     /**
+     *
      * 机器标识位数
      */
     private final long workerIdBits = 10L;
@@ -66,10 +69,11 @@ public class SnowFlakeUtil {
 
     }
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             SnowFlakeUtil snowFlakeUtil = SnowFlakeUtil.getFlowIdInstance();
             System.out.println(snowFlakeUtil.nextId());
         }
+
     }
 
     public synchronized long nextId() {
